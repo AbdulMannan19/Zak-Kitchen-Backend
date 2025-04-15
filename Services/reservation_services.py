@@ -7,11 +7,22 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import base64
 import json
+from datetime import datetime, timedelta
+from google.oauth2.credentials import Credentials
+from flask import session
 
-# Load config
-with open('config.json', 'r') as f:
-    config = json.load(f)
-    SCOPES = config['SCOPES']
+# Load config from environment variable or fallback to local path
+config_path = os.environ.get('CONFIG_PATH', './config.json')
+try:
+    with open(config_path, 'r') as f:
+        config = json.load(f)
+        SCOPES = config['SCOPES']
+except FileNotFoundError:
+    raise FileNotFoundError(f"Config file not found at {config_path}")
+except json.JSONDecodeError:
+    raise ValueError(f"Invalid JSON in config file at {config_path}")
+except KeyError:
+    raise KeyError("'SCOPES' key not found in config file")
 
 def generate_email_content(name, email, phone, date, time, guests):
     html_content = f"""
@@ -72,21 +83,16 @@ def generate_email_content(name, email, phone, date, time, guests):
 
 def get_gmail_service():
     creds = None
-    
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
             
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            credentials_path = os.environ.get('CREDENTIALS_PATH', './credentials.json')
             flow = InstalledAppFlow.from_client_secrets_file(
-                r'Backend\credentials.json', SCOPES)
+                credentials_path, SCOPES)
             creds = flow.run_local_server(port=8080)
             
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(creds, token)
 
     return build('gmail', 'v1', credentials=creds)
 
