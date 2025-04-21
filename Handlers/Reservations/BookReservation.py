@@ -1,4 +1,4 @@
-from flask import session, request, jsonify, render_template_string
+from flask import session, request, jsonify, render_template
 from google_auth_oauthlib.flow import Flow
 from google.oauth2.credentials import Credentials
 from Services.reservation_services import send_message, create_message, get_gmail_service, generate_email_content
@@ -43,10 +43,8 @@ class BookReservationHandler:
 
             send_message(service, "me", message)
             
-            return jsonify({'message': '✅ Reservation email sent successfully!'})
-            #return render_template('confirmation.html')
+            return render_template('confirmation.html')
 
         except Exception as e:
-           return jsonify({'message': f'❌ Failed to send email: {str(e)}'}), 500
-        #return render_template('reservation_failed.html')        
+           return render_template('reservation_failed.html')        
 
