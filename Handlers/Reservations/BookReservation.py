@@ -48,4 +48,5 @@ class BookReservationHandler:
 
         except Exception as e:
            return jsonify({'message': f'❌ Failed to send email: {str(e)}'}), 500
+        #return render_template('reservation_failed.html')        
 
