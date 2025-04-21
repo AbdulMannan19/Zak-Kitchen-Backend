@@ -36,7 +36,7 @@ class BookReservationHandler:
 
             message = create_message(
                 sender=data['email'],
-                to='zakkitchen@gmail.com',
+                to='mohiisfar@gmail.com',
                 subject=subject,
                 message_text=message_text
             )
@@ -44,6 +44,7 @@ class BookReservationHandler:
             send_message(service, "me", message)
             
             return jsonify({'message': '✅ Reservation email sent successfully!'})
+            #return render_template('confirmation.html')
 
         except Exception as e:
            return jsonify({'message': f'❌ Failed to send email: {str(e)}'}), 500
