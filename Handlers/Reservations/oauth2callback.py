@@ -55,9 +55,9 @@ class OAuth2CallbackHandler:
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({{ reservation_data|tojson|safe }})
-            }).then(res => res.json())
-            .then(data => {
-                document.body.innerHTML = '<h2>' + data.message + '</h2>';
+            }).then(res => res.text())
+            .then(html => {
+                document.body.innerHTML = html;
                 setTimeout(() => {
                     window.location.href = 'http://localhost:3000';
                 }, 2000);

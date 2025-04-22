@@ -46,105 +46,154 @@ class BookReservationHandler:
             
             return render_template_string("""
             <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>Reservation Request Received - Zak's Kitchen</title>
-                <link href="https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&family=Great+Vibes&display=swap" rel="stylesheet">
-                <style>
-                    body {
-                        margin: 0;
-                        padding: 0;
-                        font-family: 'Cardo', serif;
-                        background-color: #d1830f;
-                        color: #1a1a1a;
-                        text-align: center;
-                        min-height: 100vh;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                    }
-                    .container {
-                        padding: 40px 20px;
-                        max-width: 800px;
-                        margin: 0 auto;
-                        position: relative;
-                    }
-                    .stars {
-                        font-size: 1.5em;
-                        color: black;
-                        margin: 20px 0;
-                        letter-spacing: 5px;
-                    }
-                    .header {
-                        font-family: 'Great Vibes', cursive;
-                        font-size: 2.8em;
-                        color: black;
-                        margin-bottom: 20px;
-                    }
-                    .title {
-                        font-weight: bold;
-                        font-size: 1.2em;
-                        margin: 20px 0;
-                    }
-                    .content {
-                        margin: 30px 0;
-                    }
-                    .content p {
-                        margin: 15px 0;
-                        font-size: 1.1em;
-                        line-height: 1.6;
-                    }
-                    .contact-info {
-                        margin-top: 30px;
-                        font-size: 1.1em;
-                    }
-                    .contact-info p {
-                        margin: 10px 0;
-                    }
-                    .footer {
-                        margin-top: 30px;
-                        font-weight: bold;
-                    }
-                    a {
-                        color: black;
-                        text-decoration: none;
-                    }
-                    a:hover {
-                        text-decoration: underline;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <div class="stars">✦✦✦✦✦</div>
-                    
-                    <div class="header">With Gratitude...</div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservation Request Received - Zak's Kitchen</title>
 
-                    <div class="title">
-                        We've Received Your Reservation Request!
-                    </div>
+  <!-- Google Fonts for classy vibes -->
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&family=Great+Vibes&display=swap" rel="stylesheet">
 
-                    <div class="content">
-                        <p>Thank you for reaching out to Zak's Kitchen.</p>
-                        <p>We have received your email for reservation. We will contact you shortly regarding available slots.</p>
-                        <p>Please check your inbox for confirmation and further details. We're excited at the possibility of welcoming you soon!</p>
-                        
-                        <h3>Warm Regards</h3>
-                    </div>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cardo', serif;
+      background-color: #d1830f;
+      color: #1a1a1a;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-                    <div class="contact-info">
-                        <p>Web: <a href="https://www.ZaksKitchenAu.com">www.ZaksKitchenAu.com</a></p>
-                        <p>Email: <a href="mailto:info@zakskitchenau.com">info@zakskitchenau.com</a></p>
-                        <p>Contact: 041-102-0566</p>
-                    </div>
+    .container {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
 
-                    <div class="footer">
-                        Zak's Kitchen Team
-                    </div>
+    .header {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      color: black;
+      margin-bottom: 20px;
+      position: relative;
+    }
 
-                    <div class="stars">✦✦✦✦✦</div>
+    .thank-you {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      margin: 15px 0;
+      font-size: 1.1em;
+      line-height: 1.6em;
+    }
+
+    .contact {
+      margin-top: 30px;
+      font-size: 1.05em;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-weight: bold;
+    }
+
+    .gramophone {
+      background: url('images/taj-mahal.png') no-repeat center;
+      background-size: contain;
+      position: absolute;
+      opacity: 0.1;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .decor-top,
+    .decor-bottom {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      text-align: center;
+      font-size: 1.5em;
+      color: #000;
+    }
+
+    .decor-top {
+      top: 10px;
+    }
+
+    .decor-bottom {
+      bottom: 10px;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="gramophone"></div>
+  <div class="decor-top">✦✦✦✦✦</div>
+
+  <div class="container">
+    <div class="header">With Gratitude...</div>
+
+    <div class="thank-you">
+      We’ve Received Your Reservation Request!
+    </div>
+
+    <div class="content">
+      <p>Thank you for reaching out to Zak’s Kitchen.</p>
+
+      <p>We have received your email for reservation. We will contact you shortly regarding available slots.</p>
+
+      <p>Please check your inbox for confirmation and further details. We’re excited at the possibility of welcoming you soon!</p>
+
+      <h3>Warm Regards</h3>
+
+      <div class="contact">
+        <p>
+            <img src="images/global.png" alt="Website" style="width: 20px; vertical-align: middle;"> 
+            Web: <a href="https://www.ZaksKitchenAu.com">www.ZaksKitchenAu.com</a>
+        </p>
+        <p>
+            <img src="images/email.png" alt="Email" style="width: 20px; vertical-align: middle;"> 
+            Email: <a href="mailto:info@zakskitchenau.com">info@zakskitchenau.com</a>
+        </p>
+        <p>
+            <img src="images/telephone-handle-silhouette.png" alt="Contact" style="width: 20px; vertical-align: middle;"> 
+            Contact: 041-102-0566
+        </p>
+    </div>
+
+      <div class="footer">
+        
+        Zak's Kitchen Team
+        <img src="images/cut.png" alt="Contact" style="width: 20px; vertical-align: middle;"> 
+
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="decor-bottom">✦✦✦✦✦</div>
                 </div>
 
                 <script>
