@@ -36,7 +36,7 @@ class BookReservationHandler:
 
             message = create_message(
                 sender=data['email'],
-                to='mohiisfar@gmail.com',
+                to='info@zakskitchenau.com',
                 subject=subject,
                 message_text=message_text
             )
