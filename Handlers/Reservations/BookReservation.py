@@ -149,7 +149,7 @@ class BookReservationHandler:
 
                 <script>
                     setTimeout(() => {
-                        window.location.href = 'http://localhost:3000';
+                        window.location.href = 'https://www.ZaksKitchenAu.com';
                     }, 3000);
                 </script>
             </body>
@@ -261,7 +261,7 @@ class BookReservationHandler:
 
                 <script>
                     setTimeout(() => {
-                        window.location.href = 'http://localhost:3000';
+                        window.location.href = 'https://www.ZaksKitchenAu.com';
                     }, 3000);
                 </script>
             </body>
