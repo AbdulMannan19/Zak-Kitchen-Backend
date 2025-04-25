@@ -145,6 +145,23 @@ class BookReservationHandler:
       text-decoration: underline;
     }
 
+    .home-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #1a1a1a;
+      color: #d1830f;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-button:hover {
+      background-color: #000;
+      text-decoration: none;
+    }
+
   </style>
 </head>
 <body>
@@ -156,15 +173,15 @@ class BookReservationHandler:
     <div class="header">With Gratitude...</div>
 
     <div class="thank-you">
-      We’ve Received Your Reservation Request!
+      We've Received Your Reservation Request!
     </div>
 
     <div class="content">
-      <p>Thank you for reaching out to Zak’s Kitchen.</p>
+      <p>Thank you for reaching out to Zak's Kitchen.</p>
 
       <p>We have received your email for reservation. We will contact you shortly regarding available slots.</p>
 
-      <p>Please check your inbox for confirmation and further details. We’re excited at the possibility of welcoming you soon!</p>
+      <p>Please check your inbox for confirmation and further details. We're excited at the possibility of welcoming you soon!</p>
 
       <h3>Warm Regards</h3>
 
@@ -181,28 +198,20 @@ class BookReservationHandler:
             <img src="images/telephone-handle-silhouette.png" alt="Contact" style="width: 20px; vertical-align: middle;"> 
             Contact: 041-102-0566
         </p>
-    </div>
+      </div>
 
       <div class="footer">
-        
         Zak's Kitchen Team
         <img src="images/cut.png" alt="Contact" style="width: 20px; vertical-align: middle;"> 
-
-        
       </div>
+
+      <a href="https://www.ZaksKitchenAu.com" class="home-button">Home Page</a>
     </div>
   </div>
 
   <div class="decor-bottom">✦✦✦✦✦</div>
-                </div>
-
-                <script>
-                    setTimeout(() => {
-                        window.location.href = 'https://www.ZaksKitchenAu.com';
-                    }, 3000);
-                </script>
-            </body>
-            </html>
+</body>
+</html>
             """)
 
         except Exception as e:
@@ -276,6 +285,21 @@ class BookReservationHandler:
                     a:hover {
                         text-decoration: underline;
                     }
+                    .home-button {
+                        display: inline-block;
+                        margin-top: 30px;
+                        padding: 12px 30px;
+                        background-color: #1a1a1a;
+                        color: #d1830f;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        transition: background-color 0.3s ease;
+                    }
+                    .home-button:hover {
+                        background-color: #000;
+                        text-decoration: none;
+                    }
                 </style>
             </head>
             <body>
@@ -305,15 +329,11 @@ class BookReservationHandler:
                         Zak's Kitchen Team
                     </div>
 
+                    <a href="https://www.ZaksKitchenAu.com" class="home-button">Home Page</a>
+
                     <div class="stars">✦✦✦✦✦</div>
                 </div>
-
-                <script>
-                    setTimeout(() => {
-                        window.location.href = 'https://www.ZaksKitchenAu.com';
-                    }, 3000);
-                </script>
             </body>
             </html>
-            """, error=str(e))        
+            """, error=str(e))
 
