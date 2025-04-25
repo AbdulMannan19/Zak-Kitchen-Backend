@@ -58,14 +58,8 @@ class OAuth2CallbackHandler:
             }).then(res => res.text())
             .then(html => {
                 document.body.innerHTML = html;
-                setTimeout(() => {
-                    window.location.href = 'https://www.zakskitchenau.com/';
-                }, 2000);
             }).catch(err => {
                 document.body.innerHTML = '<h2>Error: ' + err.message + '</h2>';
-                setTimeout(() => {
-                    window.location.href = 'https://www.zakskitchenau.com/';
-                }, 2000);
             });
             </script>
             """, reservation_data=reservation_data)
